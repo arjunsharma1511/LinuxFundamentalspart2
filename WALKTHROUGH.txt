@@ -1,0 +1,396 @@
+LINUX FIELD NOTES | FUNDAMENTALS PART 2
+CLICK-BY-CLICK STUDENT WALKTHROUGH
+
+Your assignment is to prepare a fictional library workstation and recover its opening flag.
+Use the Training terminal inside the web page for every command.
+The browser simulates the connection, file operations and permissions.
+
+START HERE
+1. Open index.html or the class link in your browser.
+2. Click Open practice room. On a narrow screen, the terminal sits below the lesson.
+3. Read the title, explanation and Your task. Select the radio button for your answer.
+4. Click Check answer. A correct choice reveals the exact command and its syntax.
+5. Read the syntax. Click the terminal input and type the command on its own.
+   Type only the command. Leave the learner@...$ prompt out.
+   If needed, click Put command in terminal. This fills the field for you.
+6. Press Enter or click Run. Read the result in the terminal. A command may succeed silently.
+7. Click Continue in the lesson. Repeat until Command 28 is complete.
+8. Use Previous or an available chapter in Room tasks to revisit earlier work.
+   Click Show terminal result on any completed command to replay its output.
+
+COMMANDS
+Try the multiple-choice question yourself before using the answer in this guide.
+
+REMOTE SESSION
+
+COMMAND 01 | Connect to Cedar
+SSH opens a shell on another computer. A login target uses the form user@host. The user is the account name and the host identifies the computer.
+Task — Start a simulated session as learner on cedar.example.
+1. Read the question. Which command starts the requested remote shell?
+2. Select ssh learner@cedar.example
+3. Click Check answer. Read the syntax explanation.
+   ssh is the program. learner@cedar.example puts the user before @ and the practice host after it.
+4. Click the terminal input. Type ssh learner@cedar.example
+5. Press Enter or click Run. The terminal label changes to Remote session and the prompt changes from desk to cedar.
+6. Click Continue to open the next command.
+
+COMMAND 02 | Check your account
+A computer can have several user accounts. The prompt often shows the account name, and a command can confirm it.
+Task — Print the current account name.
+1. Read the question. Which command prints the current username?
+2. Select whoami
+3. Click Check answer. Read the syntax explanation.
+   whoami takes no argument here. It reports the account attached to your shell.
+4. Click the terminal input. Type whoami
+5. Press Enter or click Run. Expect learner. The account name and computer name describe different things.
+6. Click Continue to open the next command.
+
+COMMAND 03 | Check the computer
+A hostname is a computer’s name. After connecting remotely, use it to confirm which machine will receive your commands.
+Task — Print the current computer’s name.
+1. Read the question. Which command prints the computer name?
+2. Select hostname
+3. Click Check answer. Read the syntax explanation.
+   hostname takes no argument for this check.
+4. Click the terminal input. Type hostname
+5. Press Enter or click Run. Expect cedar. Compare it with the desk prompt before the connection.
+6. Click Continue to open the next command.
+
+COMMAND 04 | Check your location
+Your working directory is the folder where relative names are looked up. An absolute path starts with / and names a location from the root.
+Task — Print the full path of your current folder.
+1. Read the question. Which command prints the working directory?
+2. Select pwd
+3. Click Check answer. Read the syntax explanation.
+   pwd means print working directory. It takes no argument here.
+4. Click the terminal input. Type pwd
+5. Press Enter or click Run. Expect /home/learner. This is the remote practice account’s home.
+6. Click Continue to open the next command.
+
+
+OPTIONS AND HELP
+
+COMMAND 05 | Read a plain listing
+A plain directory listing shows visible names. An option changes how a command behaves. An argument can identify the file or directory to use.
+Task — List the visible names in your current directory.
+1. Read the question. Which command shows a plain directory listing?
+2. Select ls
+3. Click Check answer. Read the syntax explanation.
+   ls has no options or path here, so it lists the current directory in its default format.
+4. Click the terminal input. Type ls
+5. Press Enter or click Run. Look for challenge, reports and staff.txt. A name beginning with a dot is hidden from this listing.
+6. Click Continue to open the next command.
+
+COMMAND 06 | Reveal hidden names
+A filename that starts with a dot is normally hidden in an ordinary listing. The all option includes these names.
+Task — List all names in the current directory, including hidden ones.
+1. Read the question. Which command adds the all option to a listing?
+2. Select ls -a
+3. Click Check answer. Read the syntax explanation.
+   The -a option means all. The entries . and .. refer to this directory and its parent.
+4. Click the terminal input. Type ls -a
+5. Press Enter or click Run. Look for .profile. Compare it with the plain listing.
+6. Click Continue to open the next command.
+
+COMMAND 07 | Read the long format
+A long listing shows metadata such as permissions, owner, group and size. Use it when names alone are insufficient.
+Task — List the visible names with their details.
+1. Read the question. Which command asks for the long format?
+2. Select ls -l
+3. Click Check answer. Read the syntax explanation.
+   The option -l uses a lowercase letter L. A leading d in the result marks a directory.
+4. Click the terminal input. Type ls -l
+5. Press Enter or click Run. Find the owner and group on the staff.txt row.
+6. Click Continue to open the next command.
+
+COMMAND 08 | Open a quick help page
+Many Linux commands offer a short usage guide through a long option. Long option names often begin with two hyphens.
+Task — Ask ls for its built-in usage summary.
+1. Read the question. Which command asks for this program’s quick help?
+2. Select ls --help
+3. Click Check answer. Read the syntax explanation.
+   Type two hyphens before help. For ls, -h is a different option.
+4. Click the terminal input. Type ls --help
+5. Press Enter or click Run. Read the short entries for -a, -l and -h.
+6. Click Continue to open the next command.
+
+COMMAND 09 | Read the manual
+A manual page is local documentation for a command. It typically has sections for its name, syntax and behavior.
+Task — Open the manual for ls.
+1. Read the question. Which command requests the ls manual?
+2. Select man ls
+3. Click Check answer. Read the syntax explanation.
+   man is the documentation reader. ls is the name of the manual page to open.
+4. Click the terminal input. Type man ls
+5. Press Enter or click Run. Read the NAME and SYNOPSIS lines. The browser displays the text inline. On a real pager, q usually exits.
+6. Click Continue to open the next command.
+
+COMMAND 10 | Make file sizes readable
+File sizes in bytes can be hard to scan. Combine the long and human-readable options to see sizes such as 8.0K.
+Task — List report entries with long, human-readable details.
+1. Read the question. Which command uses both options and targets reports?
+2. Select ls -lh reports
+3. Click Check answer. Read the syntax explanation.
+   In -lh, l requests details and h makes sizes human-readable. reports is the target directory.
+4. Click the terminal input. Type ls -lh reports
+5. Press Enter or click Run. Look for the size next to catalog.txt and its K suffix.
+6. Click Continue to open the next command.
+
+
+FILE WORK
+
+COMMAND 11 | Make a working folder
+A directory groups related files. Creating one in your home folder gives you a clear place to practise.
+Task — Create a directory called workshop.
+1. Read the question. Which command creates the requested directory?
+2. Select mkdir workshop
+3. Click Check answer. Read the syntax explanation.
+   mkdir means make directory. workshop is the new directory name.
+4. Click the terminal input. Type mkdir workshop
+5. Press Enter or click Run. The terminal reports successful creation. Later commands refer to this new folder.
+6. Click Continue to open the next command.
+
+COMMAND 12 | Create an empty note
+A plain file stores data such as text. One common command creates an empty file when the named file does not yet exist.
+Task — Create an empty file at workshop/draft.txt.
+1. Read the question. Which command creates the empty file?
+2. Select touch workshop/draft.txt
+3. Click Check answer. Read the syntax explanation.
+   touch creates a file or updates an existing file’s timestamp. The slash places draft.txt inside workshop.
+4. Click the terminal input. Type touch workshop/draft.txt
+5. Press Enter or click Run. The new file starts with no text.
+6. Click Continue to open the next command.
+
+COMMAND 13 | Write one line
+echo prints text. A greater-than sign sends that output into a file and replaces the old contents. Use it here on your new draft.
+Task — Write Ready for opening into workshop/draft.txt.
+1. Read the question. Which command sends the text into the requested file?
+2. Select echo "Ready for opening" > workshop/draft.txt
+3. Click Check answer. Read the syntax explanation.
+   Quotes keep the phrase together. The > symbol redirects output to the path on its right.
+4. Click the terminal input. Type echo "Ready for opening" > workshop/draft.txt
+5. Press Enter or click Run. A later reading command will show the line. This write itself prints no text in a real shell.
+6. Click Continue to open the next command.
+
+COMMAND 14 | Keep a separate copy
+A copy creates a second file, allowing you to preserve the original. Give the source first and the destination second.
+Task — Copy draft.txt to a new file called copy.txt inside workshop.
+1. Read the question. Which command copies the file in the correct direction?
+2. Select cp workshop/draft.txt workshop/copy.txt
+3. Click Check answer. Read the syntax explanation.
+   cp takes the source path first and the new destination path second.
+4. Click the terminal input. Type cp workshop/draft.txt workshop/copy.txt
+5. Press Enter or click Run. Both draft.txt and copy.txt now exist in the simulated directory.
+6. Click Continue to open the next command.
+
+COMMAND 15 | Rename the copy
+Moving a file to a new name within the same folder renames it. The old name disappears while the contents are preserved.
+Task — Rename copy.txt to opening-note.txt inside workshop.
+1. Read the question. Which command renames the copy?
+2. Select mv workshop/copy.txt workshop/opening-note.txt
+3. Click Check answer. Read the syntax explanation.
+   mv takes the old path first and the new path second.
+4. Click the terminal input. Type mv workshop/copy.txt workshop/opening-note.txt
+5. Press Enter or click Run. The simulator moves the copy to its new name. draft.txt remains separate.
+6. Click Continue to open the next command.
+
+COMMAND 16 | Verify the renamed note
+A successful file operation deserves a check. Reading the destination confirms the file has the content you expect.
+Task — Read the renamed opening-note.txt file.
+1. Read the question. Which command displays the text in the renamed file?
+2. Select cat workshop/opening-note.txt
+3. Click Check answer. Read the syntax explanation.
+   cat prints the contents of the named file. The argument is its new path.
+4. Click the terminal input. Type cat workshop/opening-note.txt
+5. Press Enter or click Run. Expect Ready for opening. This verifies that both content and the new name survived.
+6. Click Continue to open the next command.
+
+
+SYSTEM DIRECTORIES
+
+COMMAND 17 | Visit the filesystem root
+The top of a Linux filesystem is /. It is called the root directory. It contains folders such as home, etc and var.
+Task — List the entries at the filesystem root without changing your working directory.
+1. Read the question. Which command lists the root directory?
+2. Select ls /
+3. Click Check answer. Read the syntax explanation.
+   The / argument points to the top of the tree. ls lists it without moving your prompt.
+4. Click the terminal input. Type ls /
+5. Press Enter or click Run. Look for etc, home, tmp and var.
+6. Click Continue to open the next command.
+
+COMMAND 18 | Read a configuration example
+Many system-wide configuration files live under /etc. Read the simulated workstation’s simple settings record.
+Task — Print the text of /etc/cedar.conf.
+1. Read the question. Which command reads that configuration file?
+2. Select cat /etc/cedar.conf
+3. Click Check answer. Read the syntax explanation.
+   The initial slash makes this an absolute path. cat uses that path to read the file.
+4. Click the terminal input. Type cat /etc/cedar.conf
+5. Press Enter or click Run. Expect branch=cedar and mode=training.
+6. Click Continue to open the next command.
+
+COMMAND 19 | Find the daily log
+A log records events. Many system logs are stored under /var/log, although the exact layout varies by system.
+Task — List the names stored in /var/log.
+1. Read the question. Which command lists that directory?
+2. Select ls /var/log
+3. Click Check answer. Read the syntax explanation.
+   Pass /var/log as the directory argument to ls.
+4. Click the terminal input. Type ls /var/log
+5. Press Enter or click Run. Locate opening.log in the output.
+6. Click Continue to open the next command.
+
+COMMAND 20 | Read the first log entries
+When a file is large, head lets you inspect its opening lines. The -n option followed by a number selects how many.
+Task — Show exactly the first two lines of /var/log/opening.log.
+1. Read the question. Which command reads the first two lines?
+2. Select head -n 2 /var/log/opening.log
+3. Click Check answer. Read the syntax explanation.
+   head starts at the top. -n 2 limits the output to two lines.
+4. Click the terminal input. Type head -n 2 /var/log/opening.log
+5. Press Enter or click Run. Look for the 08:00 and 08:03 entries. The third entry stays out of view.
+6. Click Continue to open the next command.
+
+
+USERS AND PERMISSIONS
+
+COMMAND 21 | Read your group memberships
+Groups let more than one account share certain permissions. Linux can display the current user ID and group memberships together.
+Task — Check your user ID and groups.
+1. Read the question. Which command shows the user ID and groups?
+2. Select id
+3. Click Check answer. Read the syntax explanation.
+   id prints the current identity and relevant group names.
+4. Click the terminal input. Type id
+5. Press Enter or click Run. Find learner and library in the output.
+6. Click Continue to open the next command.
+
+COMMAND 22 | Inspect a file’s access
+The permission string starts with the file type, followed by three groups of letters for owner, group and others. r means read, w means write and x means execute.
+Task — Read the long listing for staff.txt.
+1. Read the question. Which command shows the file’s owner, group and permission bits?
+2. Select ls -l staff.txt
+3. Click Check answer. Read the syntax explanation.
+   The -l option requests the long format. staff.txt limits the listing to that file.
+4. Click the terminal input. Type ls -l staff.txt
+5. Press Enter or click Run. Expect -rw-------. Only the owner has read and write permission.
+6. Click Continue to open the next command.
+
+COMMAND 23 | Grant group read access
+A symbolic permission change states who is affected and what to change. The g class represents the owning group. The plus sign adds access.
+Task — Give the owning group read access to staff.txt.
+1. Read the question. Which command adds read access for the group?
+2. Select chmod g+r staff.txt
+3. Click Check answer. Read the syntax explanation.
+   chmod changes permissions. g selects the group, + adds a permission and r is read.
+4. Click the terminal input. Type chmod g+r staff.txt
+5. Press Enter or click Run. The simulator adds group read permission. The owner’s access stays the same.
+6. Click Continue to open the next command.
+
+COMMAND 24 | Verify the new permissions
+After a permission change, inspect the file again. A successful change should appear in the correct group of three characters.
+Task — Check the new permission bits for staff.txt.
+1. Read the question. Which command verifies the permission change?
+2. Select ls -l staff.txt
+3. Click Check answer. Read the syntax explanation.
+   Use the same long listing as your before check so the permission bits can be compared directly.
+4. Click the terminal input. Type ls -l staff.txt
+5. Press Enter or click Run. Expect -rw-r-----. The middle triplet is now r--.
+6. Click Continue to open the next command.
+
+
+FLAG TRAIL
+
+COMMAND 25 | Enter the challenge folder
+A relative path is measured from wherever your shell is now. The challenge folder is directly inside your current home directory.
+Task — Change into the challenge directory.
+1. Read the question. Which command changes to the challenge directory?
+2. Select cd challenge
+3. Click Check answer. Read the syntax explanation.
+   cd changes the working directory. challenge is a relative directory name.
+4. Click the terminal input. Type cd challenge
+5. Press Enter or click Run. The prompt ends with ~/challenge$.
+6. Click Continue to open the next command.
+
+COMMAND 26 | Find a hidden clue
+Some entries are deliberately left out of plain listings. Ask for all names to reveal the hidden clue.
+Task — List all names inside the challenge directory.
+1. Read the question. Which command reveals the dot-prefixed clue?
+2. Select ls -a
+3. Click Check answer. Read the syntax explanation.
+   Use the all option -a again. Look for a name that begins with a dot.
+4. Click the terminal input. Type ls -a
+5. Press Enter or click Run. Find .trail in the result.
+6. Click Continue to open the next command.
+
+COMMAND 27 | Read the clue
+A dot at the start is part of the filename. Include it when asking a command to read that file.
+Task — Read the contents of .trail.
+1. Read the question. Which command reads the hidden text file?
+2. Select cat .trail
+3. Click Check answer. Read the syntax explanation.
+   cat reads the file. The dot in .trail is required.
+4. Click the terminal input. Type cat .trail
+5. Press Enter or click Run. The file points you to drawer/opening.txt.
+6. Click Continue to open the next command.
+
+COMMAND 28 | Recover the flag
+A relative path may contain several levels. The slash divides the folder from the filename inside it.
+Task — Read the opening.txt file identified by the clue.
+1. Read the question. Which command reads the file inside drawer?
+2. Select cat drawer/opening.txt
+3. Click Check answer. Read the syntax explanation.
+   The argument drawer/opening.txt says to look in drawer for opening.txt.
+4. Click the terminal input. Type cat drawer/opening.txt
+5. Press Enter or click Run. Copy the entire flag line from the output, including braces. You will use it in the final check.
+6. Record the flag, then click Continue to open the final questions.
+
+FINAL QUESTIONS
+1. After Command 28, click Continue to open Review the opening checks.
+2. Read each question and select one answer. Use these explanations if you get stuck.
+
+1. Which part of ssh learner@cedar.example names the account?
+   Select learner
+   The account goes before @.
+2. What does the -a option in ls do?
+   Select Includes hidden names
+   The option includes dot-prefixed entries.
+3. Which operation keeps the source while creating a duplicate?
+   Select cp
+   A copy leaves the source file in place.
+4. Which path is commonly used for system logs?
+   Select /var/log
+   The lab’s opening log is stored under /var/log.
+5. In chmod g+r staff.txt, who gets read access?
+   Select The file’s owning group
+   The g class selects the owning group.
+6. What does a path beginning with / describe?
+   Select An absolute location from the root
+   The initial slash anchors the path at root.
+
+3. Click Check final answers. Read any feedback and correct the indicated choice.
+4. When the review is complete and the count reaches 29 of 30, click Continue.
+
+SUBMIT THE FLAG
+1. Find the flag you recorded from Command 28. It starts with CEDAR{ and ends with }.
+2. If you lost it, click Previous twice to return to Command 28.
+3. Click Show terminal result. Find and copy the whole flag line, including both braces.
+4. Click Continue twice to return to Submit the opening flag.
+5. Click the Opening flag field and type or paste only the flag line.
+6. Click Check flag. Room complete and 30 of 30 activities confirm completion.
+
+IF YOU GET STUCK
+- Grey command input or Run button. Select the right MCQ answer and click Check answer.
+- Your command is rejected. Match the case, spaces, quotes, hyphens and path exactly.
+  If typing the symbols is difficult, use Put command in terminal and then click Run.
+- No text after a command. Commands such as cp, mv and chmod can succeed silently.
+  Check the progress count and look for Continue.
+- A chapter is locked. Finish the first incomplete command in an available chapter.
+- You refreshed and the terminal output is gone. Use Show terminal result on the
+  completed step. Progress and simulated file changes are reconstructed on reload.
+- To resume on another day, use the same address, browser profile and device.
+- Reset practice room clears this exercise after confirmation.
+- If the page opens without styles or buttons, keep the HTML, CSS and three JavaScript
+  files together. If your class uses a hosted link, send the instructor that link.
+

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linux Field Notes | Fundamentals Part 2</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="lessons.js"></script>
+  <script defer src="simulator.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="#top"><span aria-hidden="true">$_</span> Linux Field Notes</a>
+    <a href="WALKTHROUGH.txt">Student walkthrough</a>
+  </header>
+  <main id="top">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">FUNDAMENTALS / PART 2</p>
+        <h1>Work inside<br>a Linux system.</h1>
+        <p>Help the fictional Cedar Library prepare its workstation for opening day. Read a short explanation, choose a command, then run it in the training terminal.</p>
+        <a class="primary" href="#room" id="start">Open practice room</a>
+      </div>
+      <div class="session">
+        <p class="eyebrow">PRACTICE ENVIRONMENT</p>
+        <p class="session-title">Cedar Library Workstation</p>
+        <div class="session-route"><span>YOUR TERMINAL</span><i aria-hidden="true"></i><span>CEDAR LAB</span></div>
+        <p>28 guided commands · 6 final questions · 1 flag<br>Self-paced · Progress saved in this browser</p>
+        <p>All files and connections are simulated in the browser. Use the practice terminal on this page.</p>
+      </div>
+    </section>
+    <section id="room" aria-label="Practice room" class="room">
+      <aside class="outline">
+        <h2>Room tasks</h2>
+        <p id="progress-label">0 of 30 activities complete</p>
+        <progress id="progress" max="30" value="0" aria-label="Room completion"></progress>
+        <nav id="chapters" aria-label="Chapters"></nav>
+        <button id="reset" type="button" class="quiet">Reset practice room</button>
+      </aside>
+      <div class="workspace">
+        <section class="lesson" id="lesson" aria-label="Current lesson"></section>
+        <section class="terminal" aria-label="Training terminal">
+          <header><strong>Training terminal</strong><span id="connection">Local session</span></header>
+          <pre id="output" tabindex="0" aria-live="polite">Cedar training terminal ready.
+Read the lesson and answer its question to unlock command entry.</pre>
+          <form id="terminal-form">
+            <label for="command" id="prompt">learner@desk:~$</label>
+            <input id="command" aria-label="Command to run" spellcheck="false" autocomplete="off" autocapitalize="off" disabled>
+            <button type="submit" id="run" disabled>Run</button>
+          </form>
+          <p id="terminal-status" role="status">Answer the question to unlock the terminal.</p>
+        </section>
+      </div>
+    </section>
+    <noscript>Enable JavaScript to use the practice room.</noscript>
+  </main>
+  <footer>Linux Field Notes · Independent classroom exercise</footer>
+</body>
+</html>
